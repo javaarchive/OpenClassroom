@@ -1,0 +1,55 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>OpenClassroom</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Open-source Classroom App" />
+    <link rel="stylesheet" type="text/css" href="/semantic.min.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"
+    ></script>
+    <script src="/semantic.min.js"></script>
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- import the webpage's client-side javascript file -->
+    <script src="/script.js" defer></script>
+    <script src="https://ricostacruz.com/nprogress/nprogress.js"></script>
+    <link rel="stylesheet" href="https://ricostacruz.com/nprogress/nprogress.css" />
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta
+  name="google-signin-client_id"
+  content="{{GSIGNIN_CLIENT_ID}}.apps.googleusercontent.com"
+/>
+  </head>
+  <body>
+    <input type="hidden" value="{{loginstatus}}" id="loginstatus" hidden>
+    <div class="ui container fullheight">
+      <div class="ui secondary  menu">
+        <a class="item header" id = "home-item">
+    {{brand}}
+  </a>
+  <a class="item">
+    Home
+  </a>
+  <a class="item" href = "/classrooms" id ="classrooms-item">
+    Classrooms
+  </a>
+  
+    <a class="ui item" id = "signin-signout">
+      
+    </a>
+</div>
+      {{{body}}}
+    </div>
+    <form method="POST" action="/signout" id="signoutform">
+      <input value="yes" name="confirm" type="hidden" hidden>
+    </form>
+  </body>
+</html>

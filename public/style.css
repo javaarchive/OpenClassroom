@@ -1,0 +1,17 @@
+/*
+  Open Classroom
+*/
+/*Full height*/
+.fullheight{
+  height: 100%;
+  min-height: 100%;
+}
+.middle-align{
+  display: flex;
+  vertical-align: middle;
+  justify-content: center;
+  align-items: center;
+}
+.anti-overflow{
+  overflow-y: hidden;
+}
