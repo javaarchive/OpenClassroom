@@ -53,8 +53,9 @@ app.use(
 var bodyParser = require("body-parser");
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
+var http = require('http').createServer(app);
+//var server = http.Server(app);
+var io = require('socket.io')(http);
 // Setup sessions for socketio
 var ios = require('socket.io-express-session');
 io.use(ios(session));
@@ -155,7 +156,10 @@ app.get("/api/client_data", handler);
 app.use(express.static("public"));
 // Don't send the default array of dreams to the webpage
 // Also removed from template
-// listen for requests :)
-const listener = app.listen(process.env.PORT, () => {
-  console.log("Your app is listening on port " + listener.address().port);
+// listen for requests using http library instead:)
+http.listen(3000, () => {
+  console.log('listening on *:3000');
 });
+//const listener = app.listen(process.env.PORT, () => {
+//  console.log("Your app is listening on port " + listener.address().port);
+//});
