@@ -65,7 +65,7 @@ function signOut() {
   });
 }
 if(loggedin){
-   $("#signin-signout").html("Logged in").click(signOut);
+   $("#signin-signout").html("Signout").click(signOut);
 }else{
-  $("#signin-signout").html("Logged out").click(function(e){window.location.href="/signin"})
+  $("#signin-signout").html("Signin").click(function(e){window.location.href="/signin"})
 }

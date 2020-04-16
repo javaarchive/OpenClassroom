@@ -38,16 +38,17 @@ initDB()
 //app.get("/", (request, response) => {
 //response.sendFile(__dirname + "/views/index.html");
 //});
-// Fetch store
+// Fetch store and init sessions
 var SQLiteStore = require("connect-sqlite3")(session);
-app.use(
-  session({
+let sess = session({
     store: new SQLiteStore(),
     secret: process.env.SECRET,
     cookie: { maxAge: 7 * 24 * 60 * 60 * 1000 },
     resave: true,
     saveUninitialized: false
-  })
+  });
+app.use(
+  sess
 );
 // Body Parser
 var bodyParser = require("body-parser");
@@ -58,7 +59,7 @@ var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 // Setup sessions for socketio
 var ios = require('socket.io-express-session');
-io.use(ios(session));
+io.use(ios(sess));
 // Setup Auth
 var googleAuth = auth.create_gsignin(process.env.GSIGNIN_CLIENT_ID);
 // Response handlers
@@ -144,7 +145,7 @@ async function handler(req, res) {
     res.send(JSON.stringify(stripped_data));
   }
 }
-
+// Bindings
 app.get("/", handler);
 app.get("/classrooms", handler);
 app.get("/signin", handler);
@@ -154,10 +155,22 @@ app.get("/app", handler);
 app.get("/api/user_data", handler);
 app.get("/api/client_data", handler);
 app.use(express.static("public"));
+// Socket Handlers
+console.log("Set socket handlers")
+io.on('connection', function (socket) {
+  console.log("Socket got connection");
+  socket.emit('start', { status: "Ok!" });
+  socket.on('start', function (data) {
+    console.log("hello from "+data);
+  });
+  socket.on('report', function (data) {
+    console.log(data);
+  });
+});
 // Don't send the default array of dreams to the webpage
 // Also removed from template
 // listen for requests using http library instead:)
-http.listen(3000, () => {
+http.listen(process.env.PORT, () => {
   console.log('listening on *:3000');
 });
 //const listener = app.listen(process.env.PORT, () => {

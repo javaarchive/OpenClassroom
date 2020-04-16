@@ -28,7 +28,8 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="/socket.io/socket.io.js"></script>
     <script>
-      var socket = io();
+      var socket = io.connect({transports: ['websocket'], upgrade: false});
+      console.log("Init Socket");
     </script>
     <meta
       name="google-signin-client_id"
