@@ -1,0 +1,33 @@
+<h1>
+  Welcome to {{brand}}
+</h1>
+{{#if teacher}}
+<h3>Hello Teacher!</h3>
+<p>
+  As a teacher, you have the ability to create classes and have your students
+  join them. You can also promote other people to a teacher and demote those
+  that you accidentally promote. We recommend your email be on the pernameant
+  teacher list to prevent accidental demotion. For more information about the
+  pernameant teacher list please contact whoever is in charge of running
+  {{brand}}
+</p>
+<h4>Create a classroom</h4>
+<form class="ui form" action="/create_classroom" method="POST">
+  <div class="field">
+    <label>Classroom Name</label>
+    <input type="text" name="classroom-name" placeholder="Password" />
+  </div>
+  <div class="field">
+    <label>Password(optional)</label>
+    <input type="text" name="password" placeholder="Last Name" />
+  </div>
+  <button class="ui button" type="submit">Submit</button>
+  <p>
+    Hold Up! Before you create a new classroom, we ask you to look up at your
+    address bar(the place where you type website names in), and ensure that
+    there is a closed lock or it says https://. Otherwise your connection may be
+    insecure and hackers will steal your credentials. If you are in charge of
+    {{brand}} you can also enable to the force_https option in the configuration.
+  </p>
+</form>
+{{/if}}

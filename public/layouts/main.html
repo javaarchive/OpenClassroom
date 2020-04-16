@@ -21,35 +21,40 @@
     <!-- import the webpage's client-side javascript file -->
     <script src="/script.js" defer></script>
     <script src="https://ricostacruz.com/nprogress/nprogress.js"></script>
-    <link rel="stylesheet" href="https://ricostacruz.com/nprogress/nprogress.css" />
+    <link
+      rel="stylesheet"
+      href="https://ricostacruz.com/nprogress/nprogress.css"
+    />
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-<meta
-  name="google-signin-client_id"
-  content="{{GSIGNIN_CLIENT_ID}}.apps.googleusercontent.com"
-/>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+    </script>
+    <meta
+      name="google-signin-client_id"
+      content="{{GSIGNIN_CLIENT_ID}}.apps.googleusercontent.com"
+    />
   </head>
   <body>
-    <input type="hidden" value="{{loginstatus}}" id="loginstatus" hidden>
+    <input type="hidden" value="{{loginstatus}}" id="loginstatus" hidden />
     <div class="ui container fullheight">
       <div class="ui secondary  menu">
-        <a class="item header" id = "home-item">
-    {{brand}}
-  </a>
-  <a class="item">
-    Home
-  </a>
-  <a class="item" href = "/classrooms" id ="classrooms-item">
-    Classrooms
-  </a>
-  
-    <a class="ui item" id = "signin-signout">
-      
-    </a>
-</div>
+        <a class="item header" id="home-item">
+          {{brand}}
+        </a>
+        <a class="item">
+          Home
+        </a>
+        <a class="item" href="/classrooms" id="classrooms-item">
+          Classrooms
+        </a>
+
+        <a class="ui item" id="signin-signout"> </a>
+      </div>
       {{{body}}}
     </div>
     <form method="POST" action="/signout" id="signoutform">
-      <input value="yes" name="confirm" type="hidden" hidden>
+      <input value="yes" name="confirm" type="hidden" hidden />
     </form>
   </body>
 </html>

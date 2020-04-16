@@ -1,4 +1,5 @@
 dependencies:
+  bcrypt: 4.0.1
   body-parser: 1.19.0
   connect-sqlite3: 0.9.11
   endb: 0.22.6
@@ -12,6 +13,8 @@ dependencies:
   semantic-ui: 2.4.2
   semantic-ui-css: 2.4.1
   socket.io: 2.3.0
+  socket.io-client: 2.3.0
+  socket.io-express-session: 0.1.3
   sql: 0.78.0
   sqlite3: 4.1.1
 packages:
@@ -500,6 +503,16 @@ packages:
     dev: false
     resolution:
       integrity: sha1-pDAdOJtqQ/m2f/PKEaP2Y342Dp4=
+  /bcrypt/4.0.1:
+    dependencies:
+      node-addon-api: 2.0.0
+      node-pre-gyp: 0.14.0
+    dev: false
+    engines:
+      node: '>= 10.0.0'
+    requiresBuild: true
+    resolution:
+      integrity: sha512-hSIZHkUxIDS5zA2o00Kf2O5RfVbQ888n54xQoF/eIaquU4uaLxK8vhhBdktd0B3n2MjkcAWzv4mnhogykBKOUQ==
   /beeper/1.1.1:
     dev: false
     engines:
@@ -3892,6 +3905,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-yobR/ogoFpsBICCOPchCS524NCw=
+  /node-addon-api/2.0.0:
+    dev: false
+    resolution:
+      integrity: sha512-ASCL5U13as7HhOExbT6OlWJJUV/lLzL2voOSP1UVehpRD8FbSrSDjfScK/KwAvVTI5AS6r4VwbOMlIqtvRidnA==
   /node-fetch/2.6.0:
     dev: false
     engines:
@@ -3930,6 +3947,22 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-TwWAOZb0j7e9eGaf9esRx3ZcLaE5tQ2lvYy1pb5IAaG1a2e2Kv5Lms1Y4hpj+ciXJRofIxxlt5haeQ/2ANeE0Q==
+  /node-pre-gyp/0.14.0:
+    dependencies:
+      detect-libc: 1.0.3
+      mkdirp: 0.5.5
+      needle: 2.4.1
+      nopt: 4.0.3
+      npm-packlist: 1.4.8
+      npmlog: 4.1.2
+      rc: 1.2.8
+      rimraf: 2.7.1
+      semver: 5.7.1
+      tar: 4.4.13
+    dev: false
+    hasBin: true
+    resolution:
+      integrity: sha512-+CvDC7ZttU/sSt9rFjix/P05iS43qHCOOGzcr3Ry99bXG7VX953+vFyEuph/tfqoYu8dttBkE86JSKBO2OzcxA==
   /node-releases/1.1.53:
     dev: false
     resolution:
@@ -5159,6 +5192,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-cEQQf24gET3rfhxZ2jJ5xzAOo/xhZwK+mOqtGRg5IowZsMgwvHwnf/mCRapAAkadhM26y+iydgwsXGObBB5ZdA==
+  /socket.io-express-session/0.1.3:
+    dev: false
+    resolution:
+      integrity: sha1-bXlOrpdz4OHzSv/awD5GXbmRZnQ=
   /socket.io-parser/3.3.0:
     dependencies:
       component-emitter: 1.2.1
@@ -6097,6 +6134,7 @@ registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
+  bcrypt: ^4.0.1
   body-parser: ^1.19.0
   connect-sqlite3: ^0.9.11
   endb: ^0.22.3
@@ -6110,5 +6148,7 @@ specifiers:
   semantic-ui: ^2.4.2
   semantic-ui-css: ^2.4.1
   socket.io: ^2.3.0
+  socket.io-client: ^2.3.0
+  socket.io-express-session: ^0.1.3
   sql: ^0.78.0
   sqlite3: ^4.1.1

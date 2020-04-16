@@ -2,3 +2,4 @@
 # Edit at your own risk.
 # <hostname>[:<port>]	<incl. subdomains>	<created>	<max-age>
 codeload.github.com	0	0	1586926055	31536000
+cdn.jsdelivr.net	0	1	1586999363	31536000
