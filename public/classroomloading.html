@@ -1,0 +1,15 @@
+<div class="ui segment fullheight">
+  <div class="ui active dimmer">
+    <div class="ui indeterminate text loader" id = "loading-info">Loading...</div>
+  </div>
+  <p></p>
+</div>
+<script>
+  socket.emit("creation_subscribe",{"name":"{{classroom_name}}"});
+  socket.on('creation_event', function(data){
+    if(data["status"] == "Finish"){
+       setTimeout(function(){window.location.href="/classroom/{{classroom_name}}"},2000);
+       }
+      $('#loading-info').text(data["text"])
+    });
+</script>
